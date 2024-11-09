@@ -35,29 +35,17 @@
             </div>
         </div>
         <script>
-            const uploadForm = document.getElementById('uploadForm');
-            const textBlock = document.getElementById('textBlock');
+                document.getElementById('upload-container').addEventListener('submit', function(event) {
+                event.preventDefault(); 
 
-            uploadForm.addEventListener('submit', async (event) => {
-                event.preventDefault();   
-                const fullName = document.getElementById('fullName').value;
-
-                const response = await fetch('http://localhost:3000/api/chat', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ fullName }),
-                });
-
-                if (!response.ok) {
-                    const errorRes = await response.json();
-                    textBlock.textContent = `Ошибка: ${errorRes.error}`;
-                    return;
-                }
-
-                const data = await response.json();
-                textBlock.textContent = data.choices[0].message.content;
+                
+                var email = document.getElementById('fullName').value;
+                
+                
+                document.getElementById('textBlock').textContent = "Введённый email: " + email;
+                
+                
+                console.log('Форма отправлена с email: ' + email);
             });
         </script>
     </main>
