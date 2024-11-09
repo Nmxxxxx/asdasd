@@ -2,15 +2,15 @@ document.getElementById("uploadForm").addEventListener("submit", async function(
     event.preventDefault();
 
     const fullName = document.getElementById("fullName").value.trim();
-    const serverURL = 'http://localhost:3000/upload'; // Убедитесь, что путь верный для вашего сервера
+    const serverURL = 'http://localhost:3000/upload';
 
-    // Проверка на пустое имя
+
     if (!fullName) {
         alert("Пожалуйста, введите ваше полное имя.");
         return;
     }
 
-    // Подготовка данных для отправки
+ 
     const data = { fullName };
 
     try {
@@ -19,7 +19,7 @@ document.getElementById("uploadForm").addEventListener("submit", async function(
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data), // Превращаем объект в строку JSON
+            body: JSON.stringify(data), 
         });
 
         if (!response.ok) {
@@ -28,13 +28,13 @@ document.getElementById("uploadForm").addEventListener("submit", async function(
                 const errorData = await response.json();
                 errorMessage += `, message: ${errorData.message || 'Неизвестная ошибка'}`;
             } catch (jsonError) {
-                // Используем сообщение по умолчанию или не используем
+
             }
             throw new Error(errorMessage);
         }
 
         const responseData = await response.json();
-        alert(responseData.message); // Предполагаем, что сервер возвращает сообщение
+        alert(responseData.message); 
 
     } catch (error) {
         console.error('Error:', error);
