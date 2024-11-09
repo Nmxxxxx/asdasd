@@ -5,38 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Команда PARADOX</title>
     <link rel="stylesheet" href="css/styles.css">
+	<link href="https://fonts.cdnfonts.com/css/anurati" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="logo">В продакшен ИТ-студия</div>
-        <nav>
-            <a href="#">Главная</a>
-        </nav>
+        <div class="logo"><span>PARADOX</span></div>
     </header>
 
     <main>
         <div class="intro">
-            <h2>Команда PARADOX</h2>
+            <h2><span>PARADOX</span></h2>
             <h1>ПРЕДСТАВЛЯЕТ</h1>
+            <p>Проект <span>SKILLSCOUT</span> решает проблему несоответствия личности и специальности, что приводит к неэффективному использованию человеческого капитала на современном рынке труда.</p>
         </div>
-
         <div class="content-container">
-            <form id="uploadForm">
+            <form id="upload-container" method="POST">
                 <label for="fullName">Электронная почта</label>
-                <input type="text" id="fullName" name="fullName" title="Введите вашу электронную почту" required>
-
-                <label for="videoUpload">Загрузить видеовизитку:</label>
-                <input type="file" id="videoUpload" name="videoUpload" accept="video/*" class="custom-file-input" required>
-                <label for="videoUpload" class="file-label">Выбрать файл</label>
-
+                <input type="text" id="fullName" name="fullName" title="Введите вашу электронную почту" alt="Введите вашу электронную почту" required>
+                <div id="drop-area" ondrop="handleDrop(event)" ondragover="allowDrop(event)">
+                    <img id="upload-image" src="upload.svg" alt="">
+                    <span>Перетащите видео сюда или выберите файл</span>
+                    <input id="file-input" type="file" name="file" accept="video/*">
+                </div>
+                <label for="file-input" class="upload-btn">Выберите файл</label>
                 <button type="submit" class="buttona">Отправить</button>
             </form>
-
             <div id="textBlock" class="text-block">
-                Тут будет анализ и разбор вашей визитки.
+                Здесь будет результат анализа визитки.
             </div>
         </div>
-
         <script>
             const uploadForm = document.getElementById('uploadForm');
             const textBlock = document.getElementById('textBlock');
@@ -64,5 +61,6 @@
             });
         </script>
     </main>
+    <script src="js/script.js"></script>
 </body>
 </html>
